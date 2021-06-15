@@ -20,7 +20,7 @@ end
 
 def create_sample_data!
 puts 'Seeding with sample data...'
-create_user! email: 'sam@example.com', name: 'Sam'
+create_user! email: 'sam@example.com', first_name: 'Sam', last_name: 'Smith'
 puts 'Done! Now you can login with "sam@example.com", using password "welcome"'
 end
 
