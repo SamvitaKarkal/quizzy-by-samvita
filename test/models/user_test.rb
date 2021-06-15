@@ -77,7 +77,7 @@ class UserTest < ActiveSupport::TestCase
     invalid_roles = %w[client manager]
     invalid_roles.each do |invalid_role|
     @user.role = invalid_role
-    assert_not @user.invalid?, "#{invalid_role.inspect} is not a valid role"
+    assert_not @user.valid?, "#{invalid_role.inspect} not a valid role"
     end
   end
 
