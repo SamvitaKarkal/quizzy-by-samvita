@@ -1,4 +1,4 @@
-[![samvitakarkal](https://circleci.com/gh/samvitakarkal/quizzy-by-samvita-1.svg?style=svg)](https://circleci.com/gh/samvitakarkal/quizzy-by-samvita-1)
+[![SamvitaKarkal](https://circleci.com/gh/samvitakarkal/quizzy-by-samvita-1.svg?style=svg)](https://circleci.com/gh/samvitakarkal/quizzy-by-samvita-1)
 <br/>
 
 # [Quizzy](https://quizzy-by-samvita-1.herokuapp.com/)
