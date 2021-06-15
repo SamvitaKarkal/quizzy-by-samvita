@@ -1,11 +1,11 @@
-# README
+[![SamvitaKarkal](https://circleci.com/gh/samvitakarkal/quizzy-by-samvita-1.svg?style=svg)](https://circleci.com/gh/samvitakarkal/quizzy-by-samvita-1)
+<br/>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# [Quizzy](https://quizzy-by-samvita-1.herokuapp.com/)
 
-Things you may want to cover:
+Some important details:
 
-* Ruby version
+* Ruby version - Ruby 2.7.2
 
 * System dependencies
 
