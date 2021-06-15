@@ -5,8 +5,8 @@ class UserTest < ActiveSupport::TestCase
     @user = User.create(first_name: 'Sam',
                         last_name: 'Smith',
                         email: 'sam@example.com',
-                        # password: 'welcome',
-                        # password_confirmation: 'welcome'
+                        password: 'welcome',
+                        password_confirmation: 'welcome'
                         )
   end
 
@@ -73,29 +73,29 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
-  # test "user_should_have_valid_role" do
-  #   invalid_roles = %w[developer client manager]
-  #   invalid_roles.each do |invalid_role|
-  #   @user.role = invalid_role
-  #   assert_not @user.valid?, "#{invalid_role.inspect} is not a valid role"
-  #   end
-  # end
+  test "user_should_have_valid_role" do
+    invalid_roles = %w[client manager]
+    invalid_roles.each do |invalid_role|
+    @user.role = invalid_role
+    assert_not @user.invalid?, "#{invalid_role.inspect} is not a valid role"
+    end
+  end
 
   #user password
-  # test "password should be present (nonblank)" do
-  #   @user.password = @user.password_confirmation = " " * 6
-  #   assert_not @user.valid?
-  # end
+  test "password should be present (nonblank)" do
+    @user.password = @user.password_confirmation = " " * 6
+    assert_not @user.valid?
+  end
 
-  # test "password should have a minimum length" do
-  #   @user.password = @user.password_confirmation = "a" * 5
-  #   assert_not @user.valid?
-  # end
+  test "password should have a minimum length" do
+    @user.password = @user.password_confirmation = "a" * 5
+    assert_not @user.valid?
+  end
 
-  # test "password and password_confirmation should match" do
-  #   @user.password_confirmation = "123456"
-  #   assert_not @user.valid?
-  #   assert_equal @user.errors.messages, { :password_confirmation => ["doesn't match Password"] }
-  # end
+  test "password and password_confirmation should match" do
+    @user.password_confirmation = "123456"
+    assert_not @user.valid?
+    assert_equal @user.errors.messages, { :password_confirmation => ["doesn't match Password"] }
+  end
 
 end
