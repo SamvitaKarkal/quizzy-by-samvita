@@ -70,8 +70,6 @@ const Dashboard = ({ history }) => {
           quizzes={quizzes}
           history={history}
           isLoggedIn={isLoggedIn}
-          // showQuiz={showQuiz}
-          //updateQuiz={updateQuiz}
           destroyQuiz={destroyQuiz}
         />
       )}
