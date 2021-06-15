@@ -13,7 +13,7 @@ import Login from "components/Authentication/Login";
 import Dashboard from "components/Dashboard";
 import Navbar from "components/NavBar/index";
 import CreateQuiz from "components/Quizzes/CreateQuiz";
-//import EditQuiz from "components/Quizzes/EditQuiz";
+import EditQuiz from "components/Quizzes/EditQuiz";
 //import ShowQuiz from "components/Quizzes/ShowQuiz";
 
 const App = () => {
@@ -54,12 +54,12 @@ const App = () => {
           condition={isLoggedIn}
           component={CreateQuiz}
         />
-        {/* <PrivateRoute
+        <PrivateRoute
           path="/quizzes/:slug/edit"
           redirectRoute="/login"
           condition={isLoggedIn}
           component={EditQuiz}
-        /> */}
+        />
       </Switch>
     </Router>
   );
