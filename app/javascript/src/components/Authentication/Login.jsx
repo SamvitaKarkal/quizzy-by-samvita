@@ -19,7 +19,6 @@ const Login = () => {
         userId: response.data.userId,
         userName: response.data.user_name,
       });
-      logger.info(response.data.user_name);
       setAuthHeaders();
       setLoading(false);
       window.location.href = "/";
