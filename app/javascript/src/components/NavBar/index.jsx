@@ -1,25 +1,24 @@
 import React from "react";
 import NavItem from "./NavItem";
-// import authApi from "apis/auth";
-// import { getFromLocalStorage, setToLocalStorage } from "helpers/storage";
+import authApi from "apis/auth";
+import { getFromLocalStorage, setToLocalStorage } from "helpers/storage";
 
-const NavBar = () => {
-  //({ isLoggedIn }) => {
-  // const userName = getFromLocalStorage("authUserName");
+const NavBar = ({ isLoggedIn }) => {
+  const userName = getFromLocalStorage("authUserName");
 
-  // const handleLogout = async () => {
-  //   try {
-  //     await authApi.logout();
-  //     setToLocalStorage({
-  //       email: null,
-  //       userId: null,
-  //       userName: null,
-  //     });
-  //     window.location.href = "/login";
-  //   } catch (error) {
-  //     logger.error(error);
-  //   }
-  // };
+  const handleLogout = async () => {
+    try {
+      await authApi.logout();
+      setToLocalStorage({
+        email: null,
+        userId: null,
+        userName: null,
+      });
+      window.location.href = "/login";
+    } catch (error) {
+      logger.error(error);
+    }
+  };
 
   return (
     <nav className="bg-white shadow">
@@ -30,7 +29,7 @@ const NavBar = () => {
               <NavItem name="Quizzy" path="/" />
             </div>
           </div>
-          {/* {isLoggedIn ? (
+          {isLoggedIn ? (
             <div className="flex items-center justify-end">
               <a
                 className="inline-flex items-center px-1 pt-1 text-lg
@@ -63,7 +62,7 @@ const NavBar = () => {
             </div>
           ) : (
             <div></div>
-          )} */}
+          )}
         </div>
       </div>
     </nav>
