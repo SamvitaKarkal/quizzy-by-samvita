@@ -1,26 +1,26 @@
 import axios from "axios";
 import Toastr from "components/Common/Toastr";
-import { setToLocalStorage } from "helpers/storage";
+//import { setToLocalStorage } from "helpers/storage";
 
 axios.defaults.headers = {
   Accept: "application/json",
   "Content-Type": "application/json",
 };
 
-export const setAuthHeaders = (setLoading = () => null) => {
-  axios.defaults.headers = {
-    Accept: "applicaion/json",
-    "Content-Type": "application/json",
-    "X-CSRF-TOKEN": document
-      .querySelector('[name="csrf-token"]')
-      .getAttribute("content"),
-  };
-  const email = localStorage.getItem("authEmail");
-  if (email) {
-    axios.defaults.headers["X-Auth-Email"] = email;
-  }
-  setLoading(false);
-};
+// export const setAuthHeaders = (setLoading = () => null) => {
+//   axios.defaults.headers = {
+//     Accept: "applicaion/json",
+//     "Content-Type": "application/json",
+//     "X-CSRF-TOKEN": document
+//       .querySelector('[name="csrf-token"]')
+//       .getAttribute("content"),
+//   };
+//   const email = localStorage.getItem("authEmail");
+//   if (email) {
+//     axios.defaults.headers["X-Auth-Email"] = email;
+//   }
+//   setLoading(false);
+// };
 
 const handleSuccessResponse = response => {
   if (response) {
