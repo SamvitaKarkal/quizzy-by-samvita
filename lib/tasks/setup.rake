@@ -1,7 +1,7 @@
 task :populate_with_sample_data do
   puts 'Seeding with sample data...'
   user_details = { first_name: 'Sam',
-                   last_name: 'Smith'
+                   last_name: 'Smith',
                    email: 'Sam@example.com',
                    password: 'welcome',
                    password_confirmation: 'welcome' }
@@ -15,7 +15,7 @@ Rake::Task['populate_with_sample_data'].invoke if Rails.env.development?
 end
 
 task :populate_with_sample_data do
-create_sample_data!
+  create_sample_data!
 end
 
 def create_sample_data!
