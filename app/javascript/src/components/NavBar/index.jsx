@@ -70,5 +70,3 @@ const NavBar = ({ isLoggedIn }) => {
 };
 
 export default NavBar;
-
-//font-semibold
