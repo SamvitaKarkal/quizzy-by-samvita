@@ -74,10 +74,10 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "user_should_have_valid_role" do
-    invalid_roles = %w[client manager]
-    invalid_roles.each do |invalid_role|
-    @user.role = invalid_role
-    assert_not @user.valid?, "#{invalid_role.inspect} not a valid role"
+    valid_roles = %w[standard administrator]
+    valid_roles.each do |valid_role|
+      @user.role = valid_role
+    assert @user.valid?
     end
   end
 
