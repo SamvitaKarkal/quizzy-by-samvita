@@ -43,7 +43,7 @@ const App = () => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/" component={Dashboard} />
         {/* <PrivateRoute
-          path="/quizzes/:slug/show"
+          path="/quizzes/:id/show"
           redirectRoute="/login"
           condition={isLoggedIn}
           component={ShowQuiz}
@@ -55,7 +55,7 @@ const App = () => {
           component={CreateQuiz}
         />
         <PrivateRoute
-          path="/quizzes/:slug/edit"
+          path="/quizzes/:id/edit"
           redirectRoute="/login"
           condition={isLoggedIn}
           component={EditQuiz}

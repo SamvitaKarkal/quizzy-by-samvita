@@ -31,9 +31,9 @@ const Dashboard = ({ history }) => {
     history.push(`/quizzes/create`);
   };
 
-  const destroyQuiz = async slug => {
+  const destroyQuiz = async id => {
     try {
-      await quizzesApi.destroy(slug);
+      await quizzesApi.destroy(id);
       await fetchQuizzes();
     } catch (error) {
       logger.error(error);

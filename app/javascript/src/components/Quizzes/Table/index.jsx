@@ -12,8 +12,8 @@
 //   const columns = useMemo(() => COLUMNS, [])
 //   const quizList = useMemo(() => quizzes, [])
 
-//   const routeHandler = (slug, target) => {
-//     if (isLoggedIn) history.push(`/quizzes/${slug}/${target}`);
+//   const routeHandler = (id, target) => {
+//     if (isLoggedIn) history.push(`/quizzes/${id}/${target}`);
 //     else history.push("/login");
 //   };
 
@@ -52,7 +52,7 @@
 //                    <div className="grid grid-cols-12 gap-2">
 //                     <td
 //                       className="col-span-8 mt-5 pt-4 hover:text-purple-700 text-lg font-medium cursor-pointer"
-//                       onClick={() => routeHandler(quiz.slug, "show")}
+//                       onClick={() => routeHandler(quiz.id, "show")}
 //                     >
 //                       {quiz.title}
 //                     </td>
@@ -60,14 +60,14 @@
 //                       <Button
 //                       type="button"
 //                       buttonText="Edit"
-//                       onClick={() => updateQuiz(quiz.slug, "edit")}
+//                       onClick={() => updateQuiz(quiz.id, "edit")}
 //                       />
 //                     </td>
 //                     <td className="col-span-2">
 //                       <Button
 //                       type="button"
 //                       buttonText="Delete"
-//                       onClick={() => destroyQuiz(quiz.slug)}
+//                       onClick={() => destroyQuiz(quiz.id)}
 //                       />
 //                     </td>
 //                  </div>

@@ -2,13 +2,13 @@ import axios from "axios";
 
 const list = () => axios.get("/quizzes");
 
-const show = slug => axios.get(`/quizzes/${slug}`);
+const show = id => axios.get(`/quizzes/${id}`);
 
 const create = payload => axios.post("/quizzes/", payload);
 
-const update = ({ slug, payload }) => axios.put(`/quizzes/${slug}`, payload);
+const update = ({ id, payload }) => axios.put(`/quizzes/${id}`, payload);
 
-const destroy = slug => axios.delete(`/quizzes/${slug}`);
+const destroy = id => axios.delete(`/quizzes/${id}`);
 
 const quizzesApi = {
   list,
