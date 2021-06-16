@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 2021_06_15_175124) do
 
   create_table "quizzes", force: :cascade do |t|
     t.text "title", null: false
-    t.string "slug", null: false
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

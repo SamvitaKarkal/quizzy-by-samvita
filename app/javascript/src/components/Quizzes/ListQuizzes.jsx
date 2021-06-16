@@ -2,20 +2,20 @@ import React from "react";
 import Button from "components/Button";
 
 const ListQuizzes = ({ quizzes, history, isLoggedIn, destroyQuiz }) => {
-  const routeHandler = (slug, target) => {
-    if (isLoggedIn) history.push(`/quizzes/${slug}/${target}`);
+  const routeHandler = (id, target) => {
+    if (isLoggedIn) history.push(`/quizzes/${id}/${target}`);
     else history.push("/login");
   };
 
   return (
     <ul className="bg-white mt-4">
       {quizzes?.map(quiz => (
-        <li key={quiz.slug} className="py-1">
+        <li key={quiz.id} className="py-1">
           {isLoggedIn && (
             <div className="grid grid-cols-12 gap-2">
               <div
                 className="col-span-8 mt-5 pt-4 hover:text-purple-700 text-lg font-medium cursor-pointer"
-                onClick={() => routeHandler(quiz.slug, "show")}
+                onClick={() => routeHandler(quiz.id, "show")}
               >
                 {quiz.title}
               </div>
@@ -23,7 +23,7 @@ const ListQuizzes = ({ quizzes, history, isLoggedIn, destroyQuiz }) => {
                 <Button
                   type="button"
                   buttonText="Edit"
-                  onClick={() => routeHandler(quiz.slug, "edit")}
+                  onClick={() => routeHandler(quiz.id, "edit")}
                 />
               </div>
               <div className="col-span-2">
@@ -32,7 +32,7 @@ const ListQuizzes = ({ quizzes, history, isLoggedIn, destroyQuiz }) => {
                   buttonText="Delete"
                   onClick={() => {
                     confirm("Are you sure you wish to delete this item?")
-                      ? destroyQuiz(quiz.slug)
+                      ? destroyQuiz(quiz.id)
                       : history.push("/");
                   }}
                 />
