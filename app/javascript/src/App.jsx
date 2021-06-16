@@ -10,6 +10,7 @@ import PrivateRoute from "components/Common/PrivateRoute";
 import PageLoader from "components/PageLoader";
 
 import Login from "components/Authentication/Login";
+//import Signup from "components/Authentication/Signup";
 import Dashboard from "components/Dashboard";
 import Navbar from "components/NavBar/index";
 import CreateQuiz from "components/Quizzes/CreateQuiz";
