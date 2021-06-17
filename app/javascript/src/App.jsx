@@ -16,6 +16,7 @@ import Navbar from "components/NavBar/index";
 import CreateQuiz from "components/Quizzes/CreateQuiz";
 import EditQuiz from "components/Quizzes/EditQuiz";
 import ShowQuiz from "components/Quizzes/ShowQuiz";
+import CreateQuestion from "components/Questions/CreateQuestion";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -52,9 +53,14 @@ const App = () => {
         <PrivateRoute
           path="/quizzes/create"
           redirectRoute="/login"
-          git
           condition={isLoggedIn}
           component={CreateQuiz}
+        />
+        <PrivateRoute
+          path="/:id/questions/create"
+          redirectRoute="/login"
+          condition={isLoggedIn}
+          component={CreateQuestion}
         />
         <PrivateRoute
           path="/quizzes/:id/edit"

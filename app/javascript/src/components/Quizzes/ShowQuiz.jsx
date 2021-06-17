@@ -7,22 +7,24 @@ import Container from "components/Container";
 import PageLoader from "components/PageLoader";
 import Button from "components/Button";
 import quizzesApi from "apis/quizzes";
+import questionsApi from "apis/questions";
 import ListQuestions from "components/Questions/ListQuestions";
 
 const ShowQuiz = ({ history }) => {
   const { id } = useParams();
   const [questions, setQuestions] = useState([]);
   const [topic, setTopic] = useState("");
+  const [quizId, setQuizId] = useState(0);
   const userId = getFromLocalStorage("authUserId");
   const isLoggedIn = !either(isNil, isEmpty)(userId);
   const [loading, setLoading] = useState(true);
 
-  const fetchQuestionDetails = async () => {
+  const fetchQuizDetails = async () => {
     try {
       setAuthHeaders();
       const response = await quizzesApi.show(id);
       setTopic(response.data.quiz.title);
-      setQuestions(response.data.questions);
+      setQuizId(response.data.quiz.id);
     } catch (error) {
       logger.error(error);
     } finally {
@@ -30,21 +32,34 @@ const ShowQuiz = ({ history }) => {
     }
   };
 
-  const createQuestion = () => {
-    history.push(`/questions/create`);
+  const fetchQuestions = async () => {
+    try {
+      setAuthHeaders();
+      const resp = await questionsApi.list();
+      setQuestions(resp.data.questions);
+    } catch (error) {
+      logger.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const createQuestion = quizId => {
+    history.push(`/${quizId}/questions/create`);
   };
 
   const destroyQuestion = async id => {
     try {
       await questionsApi.destroy(id);
-      await fetchQuestionDetails();
+      await fetchQuestions();
     } catch (error) {
       logger.error(error);
     }
   };
 
   useEffect(() => {
-    fetchQuestionDetails();
+    fetchQuizDetails();
+    fetchQuestions();
   }, []);
 
   if (loading) {
@@ -60,7 +75,7 @@ const ShowQuiz = ({ history }) => {
             type="button"
             buttonText="Create new Question"
             loading={false}
-            onClick={createQuestion}
+            onClick={() => createQuestion(quizId)}
           />
         )}
       </div>
@@ -73,8 +88,6 @@ const ShowQuiz = ({ history }) => {
           questions={questions}
           history={history}
           isLoggedIn={isLoggedIn}
-          //showQuestion={showQuestion}
-          //updateQuestion={updateQuestion}
           destroyQuestion={destroyQuestion}
         />
       )}
