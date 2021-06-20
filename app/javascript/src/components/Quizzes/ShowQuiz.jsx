@@ -35,8 +35,8 @@ const ShowQuiz = ({ history }) => {
   const fetchQuestions = async () => {
     try {
       setAuthHeaders();
-      const resp = await questionsApi.list();
-      setQuestions(resp.data.questions);
+      const resp = await questionsApi.show(id);
+      setQuestions(resp.data.question);
     } catch (error) {
       logger.error(error);
     } finally {

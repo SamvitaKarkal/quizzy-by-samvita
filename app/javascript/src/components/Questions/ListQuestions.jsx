@@ -13,11 +13,10 @@ const ListQuestions = ({ questions, history, isLoggedIn, destroyQuestion }) => {
         <li key={question.id} className="py-1">
           {isLoggedIn && (
             <div className="grid grid-cols-12 gap-2">
-              <div
-                className="col-span-8 mt-5 pt-4 hover:text-purple-700 text-lg font-medium cursor-pointer"
-                onClick={() => routeHandler(question.id, "show")}
-              >
-                {question.title}
+              <div className="col-span-8 mt-5 pt-4 text-xl font-medium">
+                <span>
+                  Q{question.id}. {question.title}
+                </span>
               </div>
               <div className="col-span-2">
                 <Button

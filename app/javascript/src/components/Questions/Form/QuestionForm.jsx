@@ -10,6 +10,7 @@ const QuestionForm = ({
   options,
   setOptions,
   handleSubmit,
+  setAnswer,
 }) => {
   const [count, setCount] = useState(0);
 
@@ -20,6 +21,10 @@ const QuestionForm = ({
       curState[idx].content = e.target.value;
       return curState;
     });
+  };
+
+  const handleSelect = answer => {
+    setAnswer(answer);
   };
 
   const addOption = async () => {
@@ -91,7 +96,7 @@ const QuestionForm = ({
           )}
           {count < 2 && (
             <a
-              className="flex underline text-blue-600 hover:text-purple-600"
+              className="flex underline text-blue-600 mt-2 hover:text-purple-600"
               onClick={addOption}
             >
               + Add option
@@ -99,6 +104,23 @@ const QuestionForm = ({
           )}
         </>
       </div>
+      <select
+        className="h-10 pl-2 bg-white border-2 mt-6 px-4 border-gray-300 rounded hover:border-blue-600 focus:outline-none"
+        onChange={e => handleSelect(e.target.value)}
+      >
+        <option value="1">{options[0].content}</option>
+        <option value="2">{options[1].content}</option>
+        {count === 1 ? (
+          <option value="3">{options[2].content}</option>
+        ) : (
+          count === 2 && (
+            <>
+              <option value="3">{options[2].content}</option>
+              <option value="4">{options[3].content}</option>
+            </>
+          )
+        )}
+      </select>
       <Button type="submit" buttonText="Submit" loading={false} />
     </form>
   );

@@ -10,6 +10,7 @@ const CreateQuestion = ({ history }) => {
   const [loading, setLoading] = useState(false);
   const [pageLoading] = useState(false);
   const { id } = useParams();
+  const [answer, setAnswer] = useState("");
   const [options, setOptions] = useState([
     { content: "" },
     { content: "" },
@@ -21,7 +22,12 @@ const CreateQuestion = ({ history }) => {
     try {
       event.preventDefault();
       await questionsApi.create({
-        question: { title, quiz_id: id, option_attributes: options },
+        question: {
+          title,
+          quiz_id: id,
+          option_attributes: options,
+          answer: answer,
+        },
       });
       history.push("/");
     } catch (error) {
@@ -45,7 +51,7 @@ const CreateQuestion = ({ history }) => {
         setOptions={setOptions}
         loading={loading}
         handleSubmit={handleSubmit}
-        id={id}
+        setAnswer={setAnswer}
       />
     </Container>
   );
