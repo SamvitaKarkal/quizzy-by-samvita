@@ -15,13 +15,13 @@ task setup: [:environment, 'db:drop', 'db:create', 'db:migrate'] do
 Rake::Task['populate_with_sample_data'].invoke if Rails.env.development?
 end
 
-task :populate_with_sample_data do
+task :populate_with_sample_data_1 do
 create_sample_data!
 end
 
 def create_sample_data!
 puts 'Seeding with sample data...'
-create_user! email: 'sam@example.com'
+create_user! email: 'sam@example.com', first_name: 'Sam', last_name: 'Smith'
 puts 'Done! Now you can login with "sam@example.com", using password "welcome"'
 end
 
